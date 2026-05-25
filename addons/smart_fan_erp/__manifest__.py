@@ -24,9 +24,12 @@
     'data': [
         'data/product_category_data.xml',
         'data/product_data.xml',
-        'data/bom_data.xml',
-        'data/reordering_rules_data.xml',
+        
         'data/initial_stock_data.xml',
+        
+        'data/bom_data.xml',
+        'data/mto_route_setup.xml',
+        'data/reordering_rules_data.xml',
     ],
     'demo': [],
     'installable': True,

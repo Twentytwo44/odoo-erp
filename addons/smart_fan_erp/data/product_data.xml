@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        <!-- Finished Goods -->
+        
+        <record id="vendor_chip_supplier" model="res.partner">
+            <field name="name">ChipSupplier Co.</field>
+            <field name="supplier_rank">1</field>
+        </record>
+
         <record id="product_smart_fan_standard" model="product.product">
             <field name="name">Smart Fan Standard</field>
             <field name="type">product</field>
             <field name="categ_id" ref="smart_fan_erp.cat_smart_fan"/>
             <field name="list_price">1500.0</field>
             <field name="standard_price">1000.0</field>
-            <!-- Add route for manufacture -->
+            <field name="route_ids" eval="[(6, 0, [ref('mrp.route_warehouse0_manufacture'), ref('stock.route_warehouse0_mto')])]"/>
         </record>
 
         <record id="product_smart_fan_pro" model="product.product">
@@ -17,16 +22,16 @@
             <field name="categ_id" ref="smart_fan_erp.cat_smart_fan"/>
             <field name="list_price">2200.0</field>
             <field name="standard_price">1500.0</field>
+            <field name="route_ids" eval="[(6, 0, [ref('mrp.route_warehouse0_manufacture'), ref('stock.route_warehouse0_mto')])]"/>
         </record>
 
-        <!-- Components -->
         <record id="product_bt_wifi_module" model="product.product">
             <field name="name">Bluetooth/Wi-Fi Module</field>
             <field name="type">product</field>
             <field name="categ_id" ref="smart_fan_erp.cat_electronic_part"/>
             <field name="standard_price">120.0</field>
-            <!-- Setup to allow purchasing -->
             <field name="purchase_ok" eval="True"/>
+            <field name="seller_ids" eval="[(0, 0, {'partner_id': ref('vendor_chip_supplier'), 'price': 120.0, 'min_qty': 500.0})]" />
         </record>
 
         <record id="product_motor" model="product.product">
@@ -35,6 +40,7 @@
             <field name="categ_id" ref="smart_fan_erp.cat_mechanical_part"/>
             <field name="standard_price">250.0</field>
             <field name="purchase_ok" eval="True"/>
+            <field name="seller_ids" eval="[(0, 0, {'partner_id': ref('vendor_chip_supplier'), 'price': 250.0})]" />
         </record>
 
         <record id="product_blade" model="product.product">
@@ -43,6 +49,7 @@
             <field name="categ_id" ref="smart_fan_erp.cat_mechanical_part"/>
             <field name="standard_price">100.0</field>
             <field name="purchase_ok" eval="True"/>
+            <field name="seller_ids" eval="[(0, 0, {'partner_id': ref('vendor_chip_supplier'), 'price': 100.0})]" />
         </record>
 
         <record id="product_grill" model="product.product">
@@ -51,6 +58,7 @@
             <field name="categ_id" ref="smart_fan_erp.cat_mechanical_part"/>
             <field name="standard_price">150.0</field>
             <field name="purchase_ok" eval="True"/>
+            <field name="seller_ids" eval="[(0, 0, {'partner_id': ref('vendor_chip_supplier'), 'price': 150.0})]" />
         </record>
 
         <record id="product_fan_base" model="product.product">
@@ -59,6 +67,7 @@
             <field name="categ_id" ref="smart_fan_erp.cat_mechanical_part"/>
             <field name="standard_price">180.0</field>
             <field name="purchase_ok" eval="True"/>
+            <field name="seller_ids" eval="[(0, 0, {'partner_id': ref('vendor_chip_supplier'), 'price': 180.0})]" />
         </record>
 
         <record id="product_control_board" model="product.product">
@@ -67,6 +76,7 @@
             <field name="categ_id" ref="smart_fan_erp.cat_electronic_part"/>
             <field name="standard_price">200.0</field>
             <field name="purchase_ok" eval="True"/>
+            <field name="seller_ids" eval="[(0, 0, {'partner_id': ref('vendor_chip_supplier'), 'price': 200.0})]" />
         </record>
 
         <record id="product_remote" model="product.product">
@@ -75,6 +85,7 @@
             <field name="categ_id" ref="smart_fan_erp.cat_accessory"/>
             <field name="standard_price">80.0</field>
             <field name="purchase_ok" eval="True"/>
+            <field name="seller_ids" eval="[(0, 0, {'partner_id': ref('vendor_chip_supplier'), 'price': 80.0})]" />
         </record>
 
         <record id="product_temp_sensor" model="product.product">
@@ -83,6 +94,8 @@
             <field name="categ_id" ref="smart_fan_erp.cat_sensor"/>
             <field name="standard_price">100.0</field>
             <field name="purchase_ok" eval="True"/>
+            <field name="seller_ids" eval="[(0, 0, {'partner_id': ref('vendor_chip_supplier'), 'price': 100.0})]" />
         </record>
+        
     </data>
 </odoo>
