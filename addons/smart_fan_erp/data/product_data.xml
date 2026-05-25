@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
+        <!-- Unarchive MTO Route -->
+        <record id="stock.route_warehouse0_mto" model="stock.route">
+            <field name="active" eval="True"/>
+        </record>
+
         <!-- Finished Goods -->
         <record id="product_smart_fan_standard" model="product.product">
             <field name="name">Smart Fan Standard</field>

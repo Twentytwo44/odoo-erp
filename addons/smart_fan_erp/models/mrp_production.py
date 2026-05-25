@@ -6,7 +6,7 @@ class MrpProduction(models.Model):
 
     state = fields.Selection(selection_add=[
         ('to_approve', 'To Approve')
-    ], ondelete={'to_approve': 'set default'})
+    ], ondelete={'to_approve': lambda r: r.write({'state': 'draft'})})
 
     def button_plan(self):
         # Intercept the plan button.
